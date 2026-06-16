@@ -1,0 +1,98 @@
+<section class="section">
+  <div class="container">
+    <a href="/shop" class="back-link">&larr; Zurück zum Shop</a>
+
+    <div class="product-detail product-detail-commerce">
+      <div class="product-detail-image">
+        <img src="<%= product.image %>" alt="<%= product.name %>">
+      </div>
+
+      <div class="product-detail-info">
+        <p class="product-origin"><%= product.origin %></p>
+        <h1><%= product.name %></h1>
+        <h2>Beschreibung</h2>
+        <p class="product-description">
+          <%= product.name %> verbindet <%= product.taste.toLowerCase() %>e Noten mit einer sorgfältigen Trommelröstung.
+          Die Bohnen aus <%= product.origin %> eignen sich für bewussten Kaffeegenuss zu Hause.
+        </p>
+
+        <table class="product-table">
+          <tr>
+            <td>Herkunft</td>
+            <td><%= product.origin %></td>
+          </tr>
+          <tr>
+            <td>Geschmack</td>
+            <td><%= product.taste %></td>
+          </tr>
+          <tr>
+            <td>Gewicht</td>
+            <td><%= product.weight %>g</td>
+          </tr>
+          <tr>
+            <td>Kaffeesorte</td>
+            <td><%= product.kaffeesorte %></td>
+          </tr>
+        </table>
+
+        <div class="coffee-profile">
+          <h2>Kaffeeprofil</h2>
+          <% coffeeProfile.forEach(function(item) { %>
+            <div class="profile-row">
+              <span class="profile-label"><%= item.label %></span>
+              <div class="profile-track" aria-label="<%= item.label %>: <%= item.value %> von 5">
+                <span class="profile-fill" style="width: <%= item.value * 20 %>%"></span>
+              </div>
+              <span class="profile-value"><%= item.value %>/5</span>
+            </div>
+          <% }) %>
+        </div>
+
+        <h2>Röstprofil</h2>
+        <table class="product-table">
+          <tr>
+            <td>Temperatur</td>
+            <td><%= product.roastProfile.temperature %></td>
+          </tr>
+          <tr>
+            <td>Dauer</td>
+            <td><%= product.roastProfile.duration %></td>
+          </tr>
+          <tr>
+            <td>Röstgrad</td>
+            <td><%= product.roastProfile.level %></td>
+          </tr>
+        </table>
+
+        <h2>Zubereitungstipps</h2>
+        <p><%= product.preparationTips %></p>
+      </div>
+
+      <aside class="purchase-box" aria-label="Kaufbox">
+        <p class="purchase-price"><%= product.price.toFixed(2).replace('.', ',') %> €</p>
+        <p class="purchase-tax">inkl. MwSt., zzgl. Versand</p>
+
+        <% if (product.orderInfo.available) { %>
+          <p class="product-available">Auf Lager (<%= product.orderInfo.stock %> verfügbar)</p>
+        <% } else { %>
+          <p class="product-unavailable">Aktuell nicht verfügbar</p>
+        <% } %>
+
+        <div class="delivery-info">
+          <strong>Lieferinformationen</strong>
+          <span>Standardversand innerhalb von 2-4 Werktagen.</span>
+          <span>Versandkosten: 4,90 €</span>
+        </div>
+
+        <% if (product.orderInfo.available) { %>
+          <div class="add-to-cart">
+            <label for="quantity">Menge</label>
+            <input type="number" id="quantity" value="1" min="1" max="<%= product.orderInfo.stock %>" class="qty-input">
+            <button class="btn btn-primary add-to-cart-btn" data-id="<%= product.id %>">In den Warenkorb</button>
+            <a href="/warenkorb" class="btn btn-outline">Zur Kasse</a>
+          </div>
+        <% } %>
+      </aside>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title><%= title %> | CoffeeArt Bremen</title>
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+  <header class="site-header">
+    <nav class="nav">
+      <a href="/" class="nav-logo">CoffeeArt Bremen</a>
+      <ul class="nav-links">
+        <li><a href="/">Home</a></li>
+        <li><a href="/shop">Shop</a></li>
+        <li><a href="/coffee-finder">Coffee Finder</a></li>
+        <li><a href="/blog">Blog</a></li>
+        <li><a href="/warenkorb">Warenkorb <% if (typeof cartCount !== 'undefined' && cartCount > 0) { %>(<%= cartCount %>)<% } %></a></li>
+        <% if (typeof user !== 'undefined' && user) { %>
+          <li><a href="/admin">Admin</a></li>
+          <li><a href="/logout" class="nav-login">Logout</a></li>
+        <% } else { %>
+          <li><a href="/login" class="nav-login">Login</a></li>
+        <% } %>
+      </ul>
+    </nav>
+  </header>
+
+  <main class="main">
+    <% if (typeof body === 'string' && body.startsWith('<h1>')) { %>
+      <%- body %>
+    <% } else { %>
+      <%- include(body) %>
+    <% } %>
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-content">
+      <div class="footer-column footer-brand">
+        <h2>CoffeeArt Bremen</h2>
+        <p>Handgerösteter Kaffee mit Fokus auf Röstung, Qualität und nachvollziehbare Herkunft. Für alle, die Kaffee bewusst auswählen und genießen möchten.</p>
+      </div>
+
+      <div class="footer-column">
+        <h3>Navigation</h3>
+        <a href="/">Home</a>
+        <a href="/shop">Shop</a>
+        <a href="/coffee-finder">Coffee Finder</a>
+        <a href="/blog">Blog</a>
+        <a href="/warenkorb">Warenkorb</a>
+        <a href="/admin">Admin</a>
+      </div>
+
+      <div class="footer-column">
+        <h3>Produkte & Service</h3>
+        <a href="/shop?type=Espresso">Kaffeesorten</a>
+        <a href="/blog">Röstprofile</a>
+        <a href="/shop">Herkunft</a>
+        <a href="/api/products">API für Partner</a>
+        <a href="/login">B2B Informationen</a>
+      </div>
+
+      <div class="footer-column">
+        <h3>Kontakt</h3>
+        <p>Leipziger Straße 123<br>36039 Fulda</p>
+        <a href="mailto:info@coffeeart-bremen.de">info@coffeeart-bremen.de</a>
+        <a href="tel:+49000000000">+49 000 000000</a>
+        <p>Mo-Fr 08:00-18:00</p>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <p>&copy; 2026 CoffeeArt Bremen - Alle Rechte vorbehalten.</p>
+      <p>Demo-Version im Rahmen des Studiengangs.</p>
+    </div>
+  </footer>
+
+  <script src="/js/main.js"></script>
+</body>
+</html>
