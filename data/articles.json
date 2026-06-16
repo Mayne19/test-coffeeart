@@ -1,0 +1,26 @@
+[
+  {
+    "id": 1,
+    "title": "Wie entsteht guter Espresso?",
+    "author": "CoffeeArt Team",
+    "excerpt": "Ein kurzer Einblick in die Kunst der Espresso-Röstung – von der Bohne bis zur Tasse.",
+    "content": "Espresso ist weit mehr als nur stark aufgebrühter Kaffee. Die perfekte Tasse Espresso beginnt mit der richtigen Bohnenauswahl. Für einen klassischen Espresso verwenden wir Arabica-Bohnen aus Brasilien, die bei 220°C dunkel geröstet werden. Der Mahlgrad sollte fein sein, die Wassertemperatur liegt idealerweise zwischen 90°C und 96°C. Der Druck von 9 Bar presst das Wasser durch das Kaffeemehl und extrahiert die Aromen. Ein perfekter Espresso hat eine haselnussbraune Crema, einen vollen Körper und ein intensives Aroma. Bei CoffeeArt Bremen rösten wir in kleinen Chargen, um höchste Qualität zu gewährleisten.",
+    "coffeeInfo": "Espresso, dunkle Röstung, kräftiger Geschmack"
+  },
+  {
+    "id": 2,
+    "title": "Die Kunst der Kaffee-Röstung",
+    "author": "Anna Beispiel",
+    "excerpt": "Wie aus grünen Bohnen aromatischer Kaffee wird – unser Röstarbeiter erklärt den Prozess.",
+    "content": "Die Röstung ist der wichtigste Schritt auf dem Weg von der grünen Bohne zum aromatischen Kaffee. Beim Rösten entwickeln sich die Aromen durch komplexe chemische Prozesse wie die Maillard-Reaktion. Wir unterscheiden drei Hauptröstgrade: helle Röstung (ca. 195°C) für fruchtige und blumige Noten, mittlere Röstung (ca. 205°C) für ausgewogene Aromen und dunkle Röstung (ca. 220°C) für kräftige, schokoladige Noten. Jede Bohne reagiert anders auf die Röstung – unsere Erfahrung hilft uns, das volle Potenzial jeder Herkunft zu entfalten. Bei CoffeeArt Bremen rösten wir traditionell in der Trommelrösterei und überwachen jede Charge sorgfältig.",
+    "coffeeInfo": "Röstprozess, Trommelröstung, Aromaentwicklung"
+  },
+  {
+    "id": 3,
+    "title": "Nachhaltigkeit bei CoffeeArt Bremen",
+    "author": "Max Muster",
+    "excerpt": "Warum fairer Handel und umweltfreundliche Verpackungen für uns wichtig sind.",
+    "content": "Nachhaltigkeit ist kein Trend, sondern eine Verantwortung. Bei CoffeeArt Bremen setzen wir auf direkten Handel mit den Kaffeebauern. Das bedeutet faire Preise, langfristige Beziehungen und transparente Lieferketten. Unsere Bohnen stammen ausschließlich aus zertifiziertem Anbau. Zudem arbeiten wir daran, unseren ökologischen Fußabdruck zu reduzieren: Unsere Verpackungen sind zu 100% kompostierbar, und wir versenden klimaneutral. Auch in unserer Rösterei nutzen wir energieeffiziente Maschinen und recyceln Abwärme. Nachhaltigkeit hört für uns nicht beim Kaffee auf – sie ist Teil unserer Philosophie.",
+    "coffeeInfo": "Fairer Handel, nachhaltige Verpackung, Umweltschutz"
+  }
+]
