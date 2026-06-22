@@ -3,6 +3,9 @@
     "id": 1,
     "title": "Wie entsteht guter Espresso?",
     "author": "CoffeeArt Team",
+    "date": "22. Mai 2024",
+    "category": "Wissen",
+    "image": "https://images.unsplash.com/photo-1587734195503-904fca47e0e9?w=720&h=300&fit=crop",
     "excerpt": "Ein kurzer Einblick in die Kunst der Espresso-Röstung – von der Bohne bis zur Tasse.",
     "content": "Espresso ist weit mehr als nur stark aufgebrühter Kaffee. Die perfekte Tasse Espresso beginnt mit der richtigen Bohnenauswahl. Für einen klassischen Espresso verwenden wir Arabica-Bohnen aus Brasilien, die bei 220°C dunkel geröstet werden. Der Mahlgrad sollte fein sein, die Wassertemperatur liegt idealerweise zwischen 90°C und 96°C. Der Druck von 9 Bar presst das Wasser durch das Kaffeemehl und extrahiert die Aromen. Ein perfekter Espresso hat eine haselnussbraune Crema, einen vollen Körper und ein intensives Aroma. Bei CoffeeArt Bremen rösten wir in kleinen Chargen, um höchste Qualität zu gewährleisten.",
     "coffeeInfo": "Espresso, dunkle Röstung, kräftiger Geschmack"
@@ -11,16 +14,55 @@
     "id": 2,
     "title": "Die Kunst der Kaffee-Röstung",
     "author": "Anna Beispiel",
+    "date": "15. Mai 2024",
+    "category": "Rösterei",
+    "image": "https://images.unsplash.com/photo-1515442261605-65987783cb6a?w=720&h=300&fit=crop",
     "excerpt": "Wie aus grünen Bohnen aromatischer Kaffee wird – unser Röstarbeiter erklärt den Prozess.",
     "content": "Die Röstung ist der wichtigste Schritt auf dem Weg von der grünen Bohne zum aromatischen Kaffee. Beim Rösten entwickeln sich die Aromen durch komplexe chemische Prozesse wie die Maillard-Reaktion. Wir unterscheiden drei Hauptröstgrade: helle Röstung (ca. 195°C) für fruchtige und blumige Noten, mittlere Röstung (ca. 205°C) für ausgewogene Aromen und dunkle Röstung (ca. 220°C) für kräftige, schokoladige Noten. Jede Bohne reagiert anders auf die Röstung – unsere Erfahrung hilft uns, das volle Potenzial jeder Herkunft zu entfalten. Bei CoffeeArt Bremen rösten wir traditionell in der Trommelrösterei und überwachen jede Charge sorgfältig.",
     "coffeeInfo": "Röstprozess, Trommelröstung, Aromaentwicklung"
   },
   {
     "id": 3,
-    "title": "Nachhaltigkeit bei CoffeeArt Bremen",
+    "title": "Tipps für den perfekten Kaffee zu Hause",
     "author": "Max Muster",
-    "excerpt": "Warum fairer Handel und umweltfreundliche Verpackungen für uns wichtig sind.",
-    "content": "Nachhaltigkeit ist kein Trend, sondern eine Verantwortung. Bei CoffeeArt Bremen setzen wir auf direkten Handel mit den Kaffeebauern. Das bedeutet faire Preise, langfristige Beziehungen und transparente Lieferketten. Unsere Bohnen stammen ausschließlich aus zertifiziertem Anbau. Zudem arbeiten wir daran, unseren ökologischen Fußabdruck zu reduzieren: Unsere Verpackungen sind zu 100% kompostierbar, und wir versenden klimaneutral. Auch in unserer Rösterei nutzen wir energieeffiziente Maschinen und recyceln Abwärme. Nachhaltigkeit hört für uns nicht beim Kaffee auf – sie ist Teil unserer Philosophie.",
-    "coffeeInfo": "Fairer Handel, nachhaltige Verpackung, Umweltschutz"
+    "date": "08. Mai 2024",
+    "category": "Tipps",
+    "image": "https://images.unsplash.com/photo-1517256064527-09c73fc73e38?w=720&h=300&fit=crop",
+    "excerpt": "Mit wenigen Handgriffen mehr aus deinem Kaffee herausholen. Unsere besten Tipps für zu Hause.",
+    "content": "Guter Kaffee zu Hause beginnt mit frischen Bohnen, sauberem Equipment und dem richtigen Mahlgrad. Mahle Kaffee möglichst direkt vor dem Brühen und nutze Wasser, das weder zu hart noch zu weich ist. Für Filterkaffee lohnt sich ein gleichmäßiger Aufguss in mehreren Etappen. Bei Espresso entscheiden Mahlgrad, Menge und Bezugzeit über Balance und Crema. Kleine Veränderungen machen oft den größten Unterschied.",
+    "coffeeInfo": "Mahlgrad, Wasserqualität, Brühtipps"
+  },
+  {
+    "id": 4,
+    "title": "Kaffeebohnen: Herkunft macht den Unterschied",
+    "author": "CoffeeArt Team",
+    "date": "01. Mai 2024",
+    "category": "Herkunft",
+    "image": "https://images.unsplash.com/photo-1447933601403-0c6688de566e?w=720&h=300&fit=crop",
+    "excerpt": "Warum die Herkunft unserer Bohnen so wichtig ist – und wie sie den Geschmack prägt.",
+    "content": "Die Herkunft einer Kaffeebohne beeinflusst Aroma, Körper und Säure. Klima, Höhenlage, Boden und Aufbereitung formen den Charakter jeder Ernte. Bohnen aus Brasilien bringen oft schokoladige Noten, während äthiopische Kaffees floraler und fruchtiger wirken können. Deshalb wählen wir unsere Kaffees nicht nur nach Röstprofil aus, sondern auch nach Herkunft und Verarbeitung.",
+    "coffeeInfo": "Herkunft, Aufbereitung, Aromaprofil"
+  },
+  {
+    "id": 5,
+    "title": "Welche Brühmethode passt zu deinem Kaffee?",
+    "author": "Anna Beispiel",
+    "date": "24. April 2024",
+    "category": "Zubereitung",
+    "image": "https://images.unsplash.com/photo-1502462041640-b3d7e50d0662?w=720&h=300&fit=crop",
+    "excerpt": "Siebträger, French Press oder Filter? So findest du die passende Methode für deinen Geschmack.",
+    "content": "Jede Brühmethode betont andere Eigenschaften eines Kaffees. Die French Press liefert viel Körper und ein rundes Mundgefühl. Filtermethoden bringen klare Aromen und feine Säure hervor. Ein Siebträger eignet sich für intensive Espressi mit dichter Crema. Wer die Methode passend zum Kaffee auswählt, holt mehr aus jeder Bohne heraus.",
+    "coffeeInfo": "Brühmethode, Körper, Aroma"
+  },
+  {
+    "id": 6,
+    "title": "Warum frische Röstung so wichtig ist",
+    "author": "CoffeeArt Team",
+    "date": "18. April 2024",
+    "category": "Frische",
+    "image": "https://images.unsplash.com/photo-1495774856032-8b90bbb32b32?w=720&h=300&fit=crop",
+    "excerpt": "Frisch geröstete Bohnen behalten mehr Aroma. Wir erklären, worauf du beim Kauf achten solltest.",
+    "content": "Nach der Röstung entwickeln Kaffeebohnen ihre Aromen weiter und geben Kohlendioxid ab. Zu frische Bohnen können unruhig schmecken, zu alte verlieren Duft und Tiefe. Ein guter Zeitraum liegt oft zwischen einigen Tagen und wenigen Wochen nach der Röstung. Deshalb rösten wir regelmäßig in kleinen Chargen.",
+    "coffeeInfo": "Röstdatum, Lagerung, Aromafrische"
   }
 ]

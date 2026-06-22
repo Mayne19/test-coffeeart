@@ -8,7 +8,7 @@ router.get("/", (req, res) => {
     title: "CoffeeArt Bremen",
     body: "index",
     featuredProducts: products.slice(0, 4),
-    featuredArticles: articles.slice(0, 2),
+    featuredArticles: articles.slice(0, 3),
   });
 });
 

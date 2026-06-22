@@ -90,9 +90,7 @@ document.addEventListener('DOMContentLoaded', function () {
             showQuantityNotice(quantityInput);
           }
           var orig = this.innerHTML;
-          this.innerHTML = this.classList.contains('product-add-btn')
-            ? '<span>Hinzugefügt</span>'
-            : '<i class="hgi-stroke hgi-checkmark-circle-02" aria-hidden="true"></i><span>Hinzugefügt</span>';
+          this.innerHTML = '<span>Hinzugefügt</span>';
           var addToCart = this.closest('.add-to-cart');
           if (addToCart) {
             addToCart.classList.add('is-added');

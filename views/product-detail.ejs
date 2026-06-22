@@ -109,9 +109,9 @@
             <label for="quantity">Menge</label>
             <div class="purchase-actions">
               <div class="quantity-control" aria-label="Menge auswählen">
-                <button type="button" class="quantity-step" data-step="-1" aria-label="Menge verringern"><i class="hgi-stroke hgi-minus-sign" aria-hidden="true"></i></button>
+                <button type="button" class="quantity-step" data-step="-1" aria-label="Menge verringern">−</button>
                 <input type="number" id="quantity" value="1" min="1" max="<%= product.orderInfo.stock %>" class="qty-input">
-                <button type="button" class="quantity-step" data-step="1" aria-label="Menge erhöhen"><i class="hgi-stroke hgi-plus-sign" aria-hidden="true"></i></button>
+                <button type="button" class="quantity-step" data-step="1" aria-label="Menge erhöhen">+</button>
               </div>
               <button class="btn btn-primary add-to-cart-btn product-add-btn" data-id="<%= product.id %>"><span>In den Warenkorb</span></button>
             </div>

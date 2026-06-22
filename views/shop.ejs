@@ -62,8 +62,8 @@
             </select>
           </div>
 
-          <button type="submit" class="btn btn-primary"><i class="hgi-stroke hgi-filter" aria-hidden="true"></i><span>Filtern</span></button>
-          <a href="/shop" class="filter-reset"><i class="hgi-stroke hgi-filter-reset" aria-hidden="true"></i><span>Filter zurücksetzen</span></a>
+          <button type="submit" class="btn btn-primary"><span>Filtern</span></button>
+          <a href="/shop" class="filter-reset">Filter zurücksetzen</a>
         </form>
       </aside>
 
@@ -79,14 +79,14 @@
               <a href="/shop/<%= product.id %>"><img src="<%= product.image %>" alt="<%= product.name %>" class="product-card-image"></a>
               <a href="/shop/<%= product.id %>" class="product-card-name"><%= product.name %></a>
               <div class="product-info">
-                <p class="product-origin"><%= product.origin %></p>
-                <p class="product-taste"><%= product.taste %> · Stärke <%= product.strength %> / 5</p>
-                <p class="product-meta"><%= product.kaffeesorte %> · <%= product.weight %>g</p>
+                <p class="product-detail-line product-origin"><i class="hgi-stroke hgi-location-01" aria-hidden="true"></i><span><%= product.origin %></span></p>
+                <p class="product-detail-line product-taste"><i class="hgi-stroke hgi-fire" aria-hidden="true"></i><span><%= product.taste %> · Stärke <%= product.strength %> / 5</span></p>
+                <p class="product-detail-line product-meta"><i class="hgi-stroke hgi-coffee-beans" aria-hidden="true"></i><span><%= product.kaffeesorte %> · <%= product.weight %>g</span></p>
               </div>
               <div class="product-card-footer">
                 <span class="product-price"><%= product.price.toFixed(2).replace('.', ',') %> €</span>
                 <% if (product.orderInfo.available) { %>
-                  <button class="btn-cart add-to-cart-btn" data-id="<%= product.id %>"><i class="hgi-stroke hgi-shopping-cart-add-02" aria-hidden="true"></i><span>In den Warenkorb</span></button>
+                  <button class="btn-cart add-to-cart-btn" data-id="<%= product.id %>"><span>In den Warenkorb</span></button>
                 <% } else { %>
                   <span class="product-unavailable">Ausverkauft</span>
                 <% } %>
@@ -98,7 +98,7 @@
         <% if (products.length === 0) { %>
           <div class="empty-state">
             <p>Keine Produkte gefunden. Bitte Filter anpassen.</p>
-            <a href="/shop" class="btn btn-primary"><i class="hgi-stroke hgi-shopping-bag-03" aria-hidden="true"></i><span>Alle Produkte anzeigen</span></a>
+            <a href="/shop" class="btn btn-primary"><span>Alle Produkte anzeigen</span></a>
           </div>
         <% } %>
       </div>

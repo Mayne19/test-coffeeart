@@ -5,18 +5,15 @@
         <h1>Bestellung eingegangen</h1>
         <p>Vielen Dank, <strong><%= vorname %> <%= nachname %></strong>! Deine Bestellung wurde aufgenommen.</p>
         <p>Dies ist eine Demo - die Bestellung wurde nicht an ein echtes System übertragen.</p>
-        <a href="/shop" class="btn btn-primary"><i class="hgi-stroke hgi-shopping-bag-03" aria-hidden="true"></i><span>Weiter einkaufen</span></a>
+        <a href="/shop" class="btn btn-primary"><span>Weiter einkaufen</span></a>
       </div>
     <% } else if (!cart || cart.length === 0) { %>
       <div class="empty-state">
         <h1>Warenkorb ist leer</h1>
         <p class="lead">Dein Warenkorb enthält keine Produkte. Gehe zum Shop, um Kaffee hinzuzufügen.</p>
-        <a href="/shop" class="btn btn-primary"><i class="hgi-stroke hgi-shopping-bag-03" aria-hidden="true"></i><span>Zum Shop</span></a>
+        <a href="/shop" class="btn btn-primary"><span>Zum Shop</span></a>
       </div>
     <% } else { %>
-      <h1>Warenkorb</h1>
-      <p class="lead">Überprüfe deine Produkte und schließe die Bestellung ab.</p>
-
       <% let subtotal = 0 %>
       <% const cartProducts = cart.map(function(item) {
         const product = products.find(pr => pr.id === item.productId);
@@ -28,10 +25,14 @@
       <% const shipping = subtotal > 0 ? 4.90 : 0 %>
       <% const total = subtotal + shipping %>
       <% const vat = total * 0.19 / 1.19 %>
+      <% const cartCountTotal = cartProducts.reduce((sum, entry) => sum + entry.item.quantity, 0) %>
 
       <div class="cart-page">
         <div class="cart-items-panel">
-          <h2>Produkte im Warenkorb</h2>
+          <div class="cart-panel-heading">
+            <h1>Produkte im Warenkorb</h1>
+            <span><%= cartCountTotal %> <%= cartCountTotal === 1 ? 'Artikel' : 'Artikel' %></span>
+          </div>
           <div class="cart-items">
             <% cartProducts.forEach(function(entry) { %>
               <article class="cart-item">
@@ -40,37 +41,51 @@
                   <h3><%= entry.product.name %></h3>
                   <p><%= entry.product.origin %> · <%= entry.product.taste %></p>
                   <p><%= entry.product.kaffeesorte %> · <%= entry.product.weight %>g</p>
-                  <form method="POST" action="/cart/remove/<%= entry.product.id %>">
-                    <button type="submit" class="remove-cart-btn"><i class="hgi-stroke hgi-shopping-cart-remove-02" aria-hidden="true"></i><span>Entfernen</span></button>
+                </div>
+                <div class="cart-quantity-cell">
+                  <span class="cart-cell-label">Menge</span>
+                  <form class="cart-item-quantity" method="POST" action="/cart/update/<%= entry.product.id %>" aria-label="Menge für <%= entry.product.name %> ändern">
+                    <button type="submit" name="quantity" value="<%= Math.max(1, entry.item.quantity - 1) %>" <%= entry.item.quantity <= 1 ? 'disabled' : '' %> aria-label="Menge verringern">−</button>
+                    <span><%= entry.item.quantity %></span>
+                    <button type="submit" name="quantity" value="<%= entry.item.quantity + 1 %>" <%= entry.item.quantity >= entry.product.orderInfo.stock ? 'disabled' : '' %> aria-label="Menge erhöhen">+</button>
                   </form>
                 </div>
-                <div class="cart-item-meta">
-                  <span><%= entry.product.price.toFixed(2).replace('.', ',') %> €</span>
-                  <span>Menge: <%= entry.item.quantity %></span>
+                <div class="cart-price-cell">
+                  <span class="cart-cell-label">Einzelpreis</span>
+                  <span><%= entry.product.price.toFixed(2).replace('.', ',') %> € / Stk.</span>
+                </div>
+                <div class="cart-total-cell">
+                  <span class="cart-cell-label">Gesamt</span>
                   <strong><%= entry.lineTotal.toFixed(2).replace('.', ',') %> €</strong>
                 </div>
+                <form class="cart-remove-form" method="POST" action="/cart/remove/<%= entry.product.id %>">
+                  <button type="submit" class="remove-cart-btn" aria-label="<%= entry.product.name %> entfernen">×</button>
+                </form>
               </article>
             <% }) %>
           </div>
+          <a href="/shop" class="cart-continue-link">← Weiter einkaufen</a>
         </div>
 
         <aside class="order-summary">
-          <h2>Bestellübersicht</h2>
-          <div class="summary-row">
-            <span>Zwischensumme</span>
-            <strong><%= subtotal.toFixed(2).replace('.', ',') %> €</strong>
-          </div>
-          <div class="summary-row">
-            <span>Versandkosten</span>
-            <strong><%= shipping.toFixed(2).replace('.', ',') %> €</strong>
-          </div>
-          <div class="summary-row">
-            <span>MwSt.</span>
-            <strong><%= vat.toFixed(2).replace('.', ',') %> €</strong>
-          </div>
-          <div class="summary-row summary-total">
-            <span>Gesamtpreis</span>
-            <strong><%= total.toFixed(2).replace('.', ',') %> €</strong>
+          <div class="summary-card">
+            <h2>Bestellübersicht</h2>
+            <div class="summary-row">
+              <span>Zwischensumme</span>
+              <strong><%= subtotal.toFixed(2).replace('.', ',') %> €</strong>
+            </div>
+            <div class="summary-row">
+              <span>Versandkosten</span>
+              <strong><%= shipping.toFixed(2).replace('.', ',') %> €</strong>
+            </div>
+            <div class="summary-row">
+              <span>MwSt.</span>
+              <strong><%= vat.toFixed(2).replace('.', ',') %> €</strong>
+            </div>
+            <div class="summary-row summary-total">
+              <span>Gesamtpreis</span>
+              <strong><%= total.toFixed(2).replace('.', ',') %> €</strong>
+            </div>
           </div>
 
           <form class="checkout-form" method="POST" action="/warenkorb">
@@ -93,7 +108,7 @@
               <label for="lieferanschrift">Lieferanschrift</label>
               <input type="text" id="lieferanschrift" name="lieferanschrift" placeholder="Abweichende Lieferadresse (optional)">
             </div>
-            <button type="submit" class="btn btn-primary btn-full"><i class="hgi-stroke hgi-payment-success-02" aria-hidden="true"></i><span>Bestellung abschließen</span></button>
+            <button type="submit" class="btn btn-primary btn-full"><span>Bestellung abschließen</span></button>
           </form>
         </aside>
       </div>
