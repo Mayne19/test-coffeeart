@@ -22,18 +22,21 @@ router.get("/coffee-finder", (req, res) => {
 router.post("/coffee-finder", (req, res) => {
   const { level, taste, method, strength, type } = req.body;
   const products = req.app.locals.products;
+  const selectedTaste = taste || "";
+  const selectedStrength = strength || "";
+  const selectedType = type || "";
 
   let recommendation = products[0];
 
-  if (strength === "stark" || type === "Espresso") {
+  if (selectedStrength === "stark" || selectedType === "Espresso") {
     const strong = products.filter(
       (p) => p.kaffeesorte === "Espresso" && p.strength >= 4
     );
     if (strong.length) recommendation = strong[0];
-  } else if (taste === "Fruchtig" || taste === "Blumig") {
-    const fruity = products.filter((p) => p.taste === taste);
+  } else if (selectedTaste === "Fruchtig" || selectedTaste === "Blumig") {
+    const fruity = products.filter((p) => p.taste === selectedTaste);
     if (fruity.length) recommendation = fruity[0];
-  } else if (strength === "mild" || type === "Filterkaffee") {
+  } else if (selectedStrength === "mild" || selectedType === "Filterkaffee") {
     const mild = products.filter((p) => p.strength <= 2);
     if (mild.length) recommendation = mild[0];
   }
