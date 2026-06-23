@@ -1,0 +1,123 @@
+<section class="section finder-section">
+  <div class="container finder-container">
+    <div class="finder-intro">
+      <h1>Coffee Finder</h1>
+      <p class="lead">Finde deinen perfekten Kaffee. Beantworte ein paar Fragen und wir empfehlen dir eine unserer Röstungen.</p>
+    </div>
+
+    <div class="finder-layout">
+      <div class="finder-main-column">
+        <div class="finder-progress" aria-label="Fortschritt">
+          <span class="finder-progress-label">Schritt 1 von 5</span>
+          <strong class="finder-progress-value">0%</strong>
+          <div class="finder-progress-track"><span class="finder-progress-bar"></span></div>
+        </div>
+
+        <form class="coffee-finder-form finder-steps" method="POST" action="/coffee-finder">
+          <details class="finder-question" open>
+            <summary>
+              <span class="finder-step-number">1</span>
+              <h2>Wie erfahren bist du im Kaffeegenuss?</h2>
+              <i class="hgi-stroke hgi-arrow-down-01" aria-hidden="true"></i>
+            </summary>
+            <div class="finder-options finder-chip-grid">
+              <label class="finder-choice"><input type="radio" name="level" value="beginner" required><span>Beginner</span></label>
+              <label class="finder-choice"><input type="radio" name="level" value="expert"><span>Expert</span></label>
+            </div>
+          </details>
+
+          <details class="finder-question">
+            <summary>
+              <span class="finder-step-number">2</span>
+              <h2>Welchen Geschmack bevorzugst du?</h2>
+              <i class="hgi-stroke hgi-arrow-down-01" aria-hidden="true"></i>
+            </summary>
+            <div class="finder-options finder-chip-grid">
+              <label class="finder-choice"><input type="radio" name="taste" value="Schokoladig" required><span>Schokoladig</span></label>
+              <label class="finder-choice"><input type="radio" name="taste" value="Fruchtig"><span>Fruchtig</span></label>
+              <label class="finder-choice"><input type="radio" name="taste" value="Nussig"><span>Nussig</span></label>
+              <label class="finder-choice"><input type="radio" name="taste" value="Blumig"><span>Blumig</span></label>
+              <label class="finder-choice"><input type="radio" name="taste" value="Mild"><span>Mild</span></label>
+              <label class="finder-choice"><input type="radio" name="taste" value="Karamellig"><span>Karamellig</span></label>
+            </div>
+          </details>
+
+          <details class="finder-question">
+            <summary>
+              <span class="finder-step-number">3</span>
+              <h2>Welche Zubereitungsart nutzt du hauptsächlich?</h2>
+              <i class="hgi-stroke hgi-arrow-down-01" aria-hidden="true"></i>
+            </summary>
+            <div class="finder-options finder-chip-grid">
+              <label class="finder-choice"><input type="radio" name="method" value="siebtraeger" required><span>Siebträger</span></label>
+              <label class="finder-choice"><input type="radio" name="method" value="filter"><span>Filter / Chemex</span></label>
+              <label class="finder-choice"><input type="radio" name="method" value="frenchpress"><span>French Press</span></label>
+              <label class="finder-choice"><input type="radio" name="method" value="vollautomat"><span>Vollautomat</span></label>
+              <label class="finder-choice"><input type="radio" name="method" value="aeropress"><span>Aeropress</span></label>
+            </div>
+          </details>
+
+          <details class="finder-question">
+            <summary>
+              <span class="finder-step-number">4</span>
+              <h2>Wie stark darf der Kaffee sein?</h2>
+              <i class="hgi-stroke hgi-arrow-down-01" aria-hidden="true"></i>
+            </summary>
+            <div class="finder-options finder-chip-grid">
+              <label class="finder-choice"><input type="radio" name="strength" value="mild" required><span>Mild 1-2</span></label>
+              <label class="finder-choice"><input type="radio" name="strength" value="mittel"><span>Mittel 3</span></label>
+              <label class="finder-choice"><input type="radio" name="strength" value="stark"><span>Stark 4-5</span></label>
+            </div>
+          </details>
+
+          <details class="finder-question">
+            <summary>
+              <span class="finder-step-number">5</span>
+              <h2>Welche Kaffeesorte interessiert dich?</h2>
+              <i class="hgi-stroke hgi-arrow-down-01" aria-hidden="true"></i>
+            </summary>
+            <div class="finder-options finder-chip-grid">
+              <label class="finder-choice"><input type="radio" name="type" value="Espresso" required><span>Espresso</span></label>
+              <label class="finder-choice"><input type="radio" name="type" value="Filterkaffee"><span>Filterkaffee</span></label>
+              <label class="finder-choice"><input type="radio" name="type" value="Caffe Crema"><span>Caffe Crema</span></label>
+            </div>
+          </details>
+
+          <div class="finder-actions">
+            <button type="submit" class="btn btn-primary"><span>Empfehlung erhalten</span></button>
+            <p>Deine Antworten bleiben privat und werden nicht gespeichert.</p>
+          </div>
+        </form>
+      </div>
+
+      <aside class="finder-side-panel">
+        <% if (typeof submitted !== 'undefined' && submitted && typeof recommendation !== 'undefined') { %>
+          <div class="finder-result">
+            <h2>Deine Empfehlung</h2>
+            <div class="finder-panel-accent"></div>
+
+            <div class="product-card finder-product-card">
+              <a href="/shop/<%= recommendation.id %>"><img src="<%= recommendation.image %>" alt="<%= recommendation.name %>" class="product-card-image"></a>
+              <a href="/shop/<%= recommendation.id %>" class="product-card-name"><%= recommendation.name %></a>
+              <div class="product-info">
+                <p class="product-detail-line product-origin"><i class="hgi-stroke hgi-location-01" aria-hidden="true"></i><span><%= recommendation.origin %></span></p>
+                <p class="product-detail-line product-taste"><i class="hgi-stroke hgi-fire" aria-hidden="true"></i><span><%= recommendation.taste %> · Stärke <%= recommendation.strength %> / 5</span></p>
+                <p class="product-detail-line product-meta"><i class="hgi-stroke hgi-coffee-beans" aria-hidden="true"></i><span><%= recommendation.kaffeesorte %> · <%= recommendation.weight %>g</span></p>
+              </div>
+              <div class="product-card-footer">
+                <span class="product-price"><%= recommendation.price.toFixed(2).replace('.', ',') %> €</span>
+                <a href="/shop/<%= recommendation.id %>" class="btn-cart finder-product-link"><span>Zum Produkt</span></a>
+              </div>
+            </div>
+
+            <a href="/coffee-finder" class="btn btn-secondary finder-retry-link"><span>Erneut versuchen</span></a>
+          </div>
+        <% } else { %>
+          <div class="finder-placeholder" aria-hidden="true">
+            <i class="hgi-stroke hgi-coffee-02"></i>
+          </div>
+        <% } %>
+      </aside>
+    </div>
+  </div>
+</section>

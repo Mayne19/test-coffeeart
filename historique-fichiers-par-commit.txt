@@ -1,0 +1,36 @@
+395d17f | 2026-06-22 | Improve shop product and cart UI
+M	public/css/style.css
+M	public/js/main.js
+M	routes/cart.js
+M	routes/pages.js
+M	views/article-detail.ejs
+M	views/checkout.ejs
+M	views/index.ejs
+M	views/layout.ejs
+M	views/product-detail.ejs
+M	views/shop.ejs
+
+81d3f1a | 2026-06-22 | Polish storefront layout and cart UI
+M	data/articles.json
+M	public/css/style.css
+M	public/js/main.js
+M	routes/blog.js
+M	routes/cart.js
+M	routes/pages.js
+M	views/blog.ejs
+M	views/checkout.ejs
+M	views/index.ejs
+M	views/product-detail.ejs
+M	views/shop.ejs
+
+d09ab7d | 2026-06-23 | Refine coffee finder experience
+M	public/css/style.css
+M	public/js/main.js
+M	routes/pages.js
+M	views/coffee-finder.ejs
+
+7da96f0 | 2026-06-23 | Remove Codex screenshots
+D	.codex-screens/home-footer.png
+D	.codex-screens/product-desktop.png
+D	.codex-screens/shop-desktop.png
+D	.codex-screens/shop-mobile.png

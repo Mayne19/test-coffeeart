@@ -1,0 +1,71 @@
+<section class="hero">
+  <div class="hero-content">
+    <h1>CoffeeArt Bremen</h1>
+    <p>Handgerösteter Kaffee aus Leidenschaft – direkt aus Bremen.</p>
+    <div class="hero-buttons">
+      <a href="/shop" class="btn btn-primary"><span>Zum Shop</span></a>
+      <a href="/coffee-finder" class="btn btn-secondary"><span>Coffee Finder</span></a>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <h2>Unsere Philosophie</h2>
+    <p class="lead">
+      Wir bei CoffeeArt Bremen glauben an die perfekte Tasse Kaffee. Deshalb rösten wir unsere Bohnen
+      in kleinen Chargen, wählen jede Herkunft mit Sorgfalt und legen Wert auf Nachhaltigkeit.
+      Vom Anbau bis zur Tasse – jeder Schritt zählt.
+    </p>
+  </div>
+</section>
+
+<section class="section section-light">
+  <div class="container">
+    <div class="section-header">
+      <h2>Beliebte Produkte</h2>
+      <a href="/shop" class="btn btn-primary"><span>Alle Produkte anzeigen</span></a>
+    </div>
+    <div class="product-grid home-product-grid">
+      <% featuredProducts.forEach(function(product) { %>
+        <div class="product-card">
+          <a href="/shop/<%= product.id %>"><img src="<%= product.image %>" alt="<%= product.name %>" class="product-card-image"></a>
+          <a href="/shop/<%= product.id %>" class="product-card-name"><%= product.name %></a>
+          <div class="product-info">
+            <p class="product-detail-line product-origin"><i class="hgi-stroke hgi-location-01" aria-hidden="true"></i><span><%= product.origin %></span></p>
+            <p class="product-detail-line product-taste"><i class="hgi-stroke hgi-fire" aria-hidden="true"></i><span><%= product.taste %> · Stärke <%= product.strength %> / 5</span></p>
+            <p class="product-detail-line product-meta"><i class="hgi-stroke hgi-coffee-beans" aria-hidden="true"></i><span><%= product.kaffeesorte %> · <%= product.weight %>g</span></p>
+          </div>
+          <div class="product-card-footer">
+            <span class="product-price"><%= product.price.toFixed(2).replace('.', ',') %> €</span>
+            <button class="btn-cart add-to-cart-btn" data-id="<%= product.id %>"><span>In den Warenkorb</span></button>
+          </div>
+        </div>
+      <% }) %>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <div class="section-header">
+      <h2>Neueste Blogbeiträge</h2>
+      <a href="/blog" class="btn btn-primary"><span>Alle Beiträge</span></a>
+    </div>
+    <div class="blog-grid home-blog-grid">
+      <% featuredArticles.forEach(function(article) { %>
+        <article class="blog-card-full">
+          <a href="/blog/<%= article.id %>" class="blog-card-image-link">
+            <img src="<%= article.image %>" alt="<%= article.title %>" class="blog-card-image">
+          </a>
+          <div class="blog-card-body">
+            <p class="article-meta"><%= article.date %> <span>·</span> <%= article.category %></p>
+            <h2><a href="/blog/<%= article.id %>"><%= article.title %></a></h2>
+            <p class="blog-excerpt"><%= article.excerpt %></p>
+            <a href="/blog/<%= article.id %>" class="blog-read-link">Weiterlesen →</a>
+          </div>
+        </article>
+      <% }) %>
+    </div>
+  </div>
+</section>

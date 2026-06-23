@@ -1,0 +1,107 @@
+<section class="section">
+  <div class="container">
+    <h1>Shop</h1>
+    <p class="lead">Entdecke unsere handgerösteten Kaffeespezialitäten.</p>
+
+    <div class="shop-layout">
+      <aside class="shop-sidebar" aria-label="Produktfilter">
+        <h2><i class="hgi-stroke hgi-filter-horizontal" aria-hidden="true"></i><span>Filter</span></h2>
+        <form class="filter-form filter-form-sidebar" method="GET" action="/shop">
+          <div class="filter-group">
+            <label for="origin">Herkunft</label>
+            <select name="origin" id="origin">
+              <option value="">Alle Herkünfte</option>
+              <% allOrigins.forEach(function(o) { %>
+                <option value="<%= o %>" <%= selectedOrigin === o ? 'selected' : '' %>><%= o %></option>
+              <% }) %>
+            </select>
+          </div>
+
+          <div class="filter-group">
+            <label for="maxPrice">Max. Preis (€)</label>
+            <input type="number" name="maxPrice" id="maxPrice" step="0.01" min="0" value="<%= selectedMaxPrice %>">
+          </div>
+
+          <div class="filter-group">
+            <label for="strength">Stärke</label>
+            <select name="strength" id="strength">
+              <option value="">Alle Stärken</option>
+              <% for (let i = 1; i <= 5; i++) { %>
+                <option value="<%= i %>" <%= parseInt(selectedStrength) === i ? 'selected' : '' %>><%= i %> / 5</option>
+              <% } %>
+            </select>
+          </div>
+
+          <div class="filter-group">
+            <label for="taste">Geschmack</label>
+            <select name="taste" id="taste">
+              <option value="">Alle Geschmäcker</option>
+              <% allTastes.forEach(function(t) { %>
+                <option value="<%= t %>" <%= selectedTaste === t ? 'selected' : '' %>><%= t %></option>
+              <% }) %>
+            </select>
+          </div>
+
+          <div class="filter-group">
+            <label for="weight">Gewicht</label>
+            <select name="weight" id="weight">
+              <option value="">Alle Gewichte</option>
+              <% allWeights.forEach(function(w) { %>
+                <option value="<%= w %>" <%= parseInt(selectedWeight) === w ? 'selected' : '' %>><%= w %>g</option>
+              <% }) %>
+            </select>
+          </div>
+
+          <div class="filter-group">
+            <label for="type">Kaffeesorte</label>
+            <select name="type" id="type">
+              <option value="">Alle Sorten</option>
+              <% allTypes.forEach(function(t) { %>
+                <option value="<%= t %>" <%= selectedType === t ? 'selected' : '' %>><%= t %></option>
+              <% }) %>
+            </select>
+          </div>
+
+          <button type="submit" class="btn btn-primary"><span>Filtern</span></button>
+          <a href="/shop" class="filter-reset">Filter zurücksetzen</a>
+        </form>
+      </aside>
+
+      <div class="shop-products">
+        <div class="shop-results-bar">
+          <strong><%= products.length %></strong>
+          <span><%= products.length === 1 ? 'Produkt gefunden' : 'Produkte gefunden' %></span>
+        </div>
+
+        <div class="product-grid shop-product-grid">
+          <% products.forEach(function(product) { %>
+            <div class="product-card">
+              <a href="/shop/<%= product.id %>"><img src="<%= product.image %>" alt="<%= product.name %>" class="product-card-image"></a>
+              <a href="/shop/<%= product.id %>" class="product-card-name"><%= product.name %></a>
+              <div class="product-info">
+                <p class="product-detail-line product-origin"><i class="hgi-stroke hgi-location-01" aria-hidden="true"></i><span><%= product.origin %></span></p>
+                <p class="product-detail-line product-taste"><i class="hgi-stroke hgi-fire" aria-hidden="true"></i><span><%= product.taste %> · Stärke <%= product.strength %> / 5</span></p>
+                <p class="product-detail-line product-meta"><i class="hgi-stroke hgi-coffee-beans" aria-hidden="true"></i><span><%= product.kaffeesorte %> · <%= product.weight %>g</span></p>
+              </div>
+              <div class="product-card-footer">
+                <span class="product-price"><%= product.price.toFixed(2).replace('.', ',') %> €</span>
+                <% if (product.orderInfo.available) { %>
+                  <button class="btn-cart add-to-cart-btn" data-id="<%= product.id %>"><span>In den Warenkorb</span></button>
+                <% } else { %>
+                  <span class="product-unavailable">Ausverkauft</span>
+                <% } %>
+              </div>
+            </div>
+          <% }) %>
+        </div>
+
+        <% if (products.length === 0) { %>
+          <div class="empty-state">
+            <p>Keine Produkte gefunden. Bitte Filter anpassen.</p>
+            <a href="/shop" class="btn btn-primary"><span>Alle Produkte anzeigen</span></a>
+          </div>
+        <% } %>
+      </div>
+    </div>
+  </div>
+</section>
