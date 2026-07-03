@@ -1,0 +1,78 @@
+[
+  {
+    "id": "ORD-001",
+    "firstName": "Max",
+    "lastName": "Müller",
+    "address": "Musterstraße 12, 36039 Fulda",
+    "deliveryAddress": "",
+    "items": [
+      {
+        "name": "Espresso Bremen",
+        "quantity": 2
+      },
+      {
+        "name": "Havanna Morgen",
+        "quantity": 1
+      }
+    ],
+    "total": "40,47 €",
+    "status": "Neu"
+  },
+  {
+    "id": "ORD-002",
+    "firstName": "Anna",
+    "lastName": "Beispiel",
+    "address": "Kaffeegasse 5, 28195 Bremen",
+    "deliveryAddress": "",
+    "items": [
+      {
+        "name": "Café con Leche",
+        "quantity": 1
+      }
+    ],
+    "total": "11,49 €",
+    "status": "In Bearbeitung"
+  },
+  {
+    "id": "ORD-003",
+    "firstName": "Tobias",
+    "lastName": "Wagner",
+    "address": "Rösterweg 8, 36039 Fulda",
+    "deliveryAddress": "Lieferweg 3, 36039 Fulda",
+    "items": [
+      {
+        "name": "Vulkan Äthiopien",
+        "quantity": 1
+      },
+      {
+        "name": "Nordlicht Entkoffeiniert",
+        "quantity": 2
+      }
+    ],
+    "total": "38,87 €",
+    "status": "Versandt"
+  },
+  {
+    "id": "ORD-004",
+    "firstName": "Julia",
+    "lastName": "Klein",
+    "address": "Am Kaffeemarkt 2, 28195 Bremen",
+    "deliveryAddress": "",
+    "items": [
+      {
+        "name": "Brezel Blend",
+        "quantity": 2
+      },
+      {
+        "name": "Espresso Bremen",
+        "quantity": 1
+      },
+      {
+        "name": "Havanna Morgen",
+        "quantity": 1
+      }
+    ],
+    "total": "54,76 €",
+    "status": "Neu"
+  }
+]

@@ -1,0 +1,16 @@
+[
+  {
+    "id": 1,
+    "name": "Admin",
+    "email": "admin@coffeeart.de",
+    "password": "admin123",
+    "role": "admin"
+  },
+  {
+    "id": 2,
+    "name": "Mitarbeiter",
+    "email": "team@coffeeart.de",
+    "password": "team123",
+    "role": "employee"
+  }
+]

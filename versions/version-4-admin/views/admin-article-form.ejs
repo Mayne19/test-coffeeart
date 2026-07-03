@@ -1,0 +1,69 @@
+<section class="section">
+  <div class="container">
+    <a href="/admin" class="back-link"><i class="hgi-stroke hgi-arrow-left-02" aria-hidden="true"></i><span>Zurück zum Dashboard</span></a>
+    <h1><%= article ? 'Artikel bearbeiten' : 'Neuer Artikel' %></h1>
+
+    <div class="admin-form">
+<% const formAction = article ? '/admin/articles/' + article.id + '/edit' : '/admin/articles/new' %>
+      <form method="POST" action="<%= formAction %>">
+
+        <fieldset>
+          <legend>Artikeldaten</legend>
+
+          <div class="form-group">
+            <label for="title">Titel *</label>
+            <input type="text" id="title" name="title" value="<%= article ? article.title : '' %>" required>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label for="author">Autor *</label>
+              <input type="text" id="author" name="author" value="<%= article ? article.author : '' %>" required>
+            </div>
+            <div class="form-group">
+              <label for="date">Datum</label>
+              <input type="text" id="date" name="date" value="<%= article ? article.date : '' %>" placeholder="z. B. 22. Mai 2024">
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label for="category">Kategorie</label>
+              <select id="category" name="category">
+                <option value="Wissen" <%= article && article.category === 'Wissen' ? 'selected' : '' %>>Wissen</option>
+                <option value="Rösterei" <%= article && article.category === 'Rösterei' ? 'selected' : '' %>>Rösterei</option>
+                <option value="Tipps" <%= article && article.category === 'Tipps' ? 'selected' : '' %>>Tipps</option>
+                <option value="Herkunft" <%= article && article.category === 'Herkunft' ? 'selected' : '' %>>Herkunft</option>
+                <option value="Zubereitung" <%= article && article.category === 'Zubereitung' ? 'selected' : '' %>>Zubereitung</option>
+                <option value="Frische" <%= article && article.category === 'Frische' ? 'selected' : '' %>>Frische</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="image">Bild-URL</label>
+              <input type="url" id="image" name="image" value="<%= article ? article.image : '' %>">
+            </div>
+          </div>
+        </fieldset>
+
+        <fieldset>
+          <legend>Inhalt</legend>
+          <div class="form-group">
+            <textarea id="content" name="content" rows="12"><%= article ? article.content : '' %></textarea>
+          </div>
+        </fieldset>
+
+        <fieldset>
+          <legend>Kaffee-Informationen</legend>
+          <div class="form-group">
+            <input type="text" id="coffeeInfo" name="coffeeInfo" value="<%= article ? article.coffeeInfo : '' %>" placeholder="z. B. Espresso, dunkle Röstung">
+          </div>
+        </fieldset>
+
+        <div class="form-actions">
+          <button type="submit" class="btn btn-primary"><span><%= article ? 'Speichern' : 'Artikel anlegen' %></span></button>
+          <a href="/admin" class="btn btn-secondary"><span>Abbrechen</span></a>
+        </div>
+      </form>
+    </div>
+  </div>
+</section>

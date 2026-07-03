@@ -1,0 +1,141 @@
+<section class="section">
+  <div class="container">
+    <h1>Admin Dashboard</h1>
+    <p class="lead">Willkommen, <strong><%= user.name %></strong>. Hier kannst du Produkte, Artikel und Bestellungen verwalten.</p>
+
+    <div class="admin-stats">
+      <div class="stat-card">
+        <h3><%= products.length %></h3>
+        <p>Produkte</p>
+      </div>
+      <div class="stat-card">
+        <h3><%= articles.length %></h3>
+        <p>Blogartikel</p>
+      </div>
+      <div class="stat-card">
+        <h3><%= orders.length %></h3>
+        <p>Bestellungen</p>
+      </div>
+    </div>
+
+    <h2>Produktverwaltung</h2>
+    <div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1rem;margin-bottom:1rem;">
+      <span style="font-size:0.9rem;color:var(--text-light);"><%= products.length %> Produkte im Sortiment</span>
+      <a href="/admin/products/new" class="btn btn-primary"><span>Neues Produkt hinzufügen</span></a>
+    </div>
+    <div class="admin-table-wrapper">
+      <table class="admin-table">
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Kaffeesorte</th>
+            <th>Herkunft</th>
+            <th>Preis</th>
+            <th>Bestand</th>
+            <th>Aktionen</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% products.forEach(function(p) { %>
+            <tr>
+              <td><%= p.id %></td>
+              <td><strong><%= p.name %></strong></td>
+              <td><%= p.kaffeesorte %></td>
+              <td><%= p.origin %></td>
+              <td><%= p.price.toFixed(2).replace('.', ',') %> €</td>
+              <td><%= p.orderInfo.stock %></td>
+              <td>
+                <div class="admin-action-group">
+                  <a href="/admin/products/<%= p.id %>/edit" class="admin-action-btn admin-action-btn-edit">Bearbeiten</a>
+                  <form method="POST" action="/admin/products/<%= p.id %>/delete" style="display:inline" onsubmit="return confirm('Produkt „<%= p.name %>“ wirklich löschen?')">
+                    <button type="submit" class="admin-action-btn admin-action-btn-delete">Löschen</button>
+                  </form>
+                </div>
+              </td>
+            </tr>
+          <% }) %>
+        </tbody>
+      </table>
+    </div>
+
+    <h2 style="margin-top:2.5rem;">Artikelverwaltung</h2>
+    <div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1rem;margin-bottom:1rem;">
+      <span style="font-size:0.9rem;color:var(--text-light);"><%= articles.length %> Artikel veröffentlicht</span>
+      <a href="/admin/articles/new" class="btn btn-primary"><span>Neuen Artikel hinzufügen</span></a>
+    </div>
+    <div class="admin-table-wrapper">
+      <table class="admin-table">
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>Titel</th>
+            <th>Kategorie</th>
+            <th>Autor</th>
+            <th>Datum</th>
+            <th>Aktionen</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% articles.forEach(function(a) { %>
+            <tr>
+              <td><%= a.id %></td>
+              <td><strong><%= a.title %></strong></td>
+              <td><%= a.category %></td>
+              <td><%= a.author %></td>
+              <td><%= a.date %></td>
+              <td>
+                <div class="admin-action-group">
+                  <a href="/admin/articles/<%= a.id %>/edit" class="admin-action-btn admin-action-btn-edit">Bearbeiten</a>
+                  <form method="POST" action="/admin/articles/<%= a.id %>/delete" style="display:inline" onsubmit="return confirm('Artikel „<%= a.title %>“ wirklich löschen?')">
+                    <button type="submit" class="admin-action-btn admin-action-btn-delete">Löschen</button>
+                  </form>
+                </div>
+              </td>
+            </tr>
+          <% }) %>
+        </tbody>
+      </table>
+    </div>
+
+    <h2 style="margin-top:2.5rem;">Bestellungen</h2>
+    <p style="font-size:0.9rem;color:var(--text-light);margin-bottom:1rem;"><%= orders.length %> Bestellungen insgesamt</p>
+    <div class="admin-table-wrapper">
+      <table class="admin-table">
+        <thead>
+          <tr>
+            <th>Bestellnummer</th>
+            <th>Kunde</th>
+            <th>Adresse</th>
+            <th>Produkte</th>
+            <th>Gesamtpreis</th>
+            <th>Status</th>
+            <th>Aktionen</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% orders.forEach(function(o) { %>
+            <tr>
+              <td><%= o.id %></td>
+              <td><%= o.firstName %> <%= o.lastName %></td>
+              <td style="font-size:0.82rem;"><%= o.deliveryAddress ? 'Lieferadresse: ' + o.deliveryAddress : o.address %></td>
+              <td><% o.items.forEach(function(item) { %><%= item.quantity %>x <%= item.name %><br><% }) %></td>
+              <td><%= o.total %></td>
+              <td><%= o.status %></td>
+              <td>
+                <form method="POST" action="/admin/orders/<%= o.id %>/status" style="display:inline">
+                  <select name="status" onchange="this.form.submit()" class="admin-action-btn admin-action-btn-status">
+                    <option value="Neu" <%= o.status === 'Neu' ? 'selected' : '' %>>Neu</option>
+                    <option value="In Bearbeitung" <%= o.status === 'In Bearbeitung' ? 'selected' : '' %>>In Bearbeitung</option>
+                    <option value="Versandt" <%= o.status === 'Versandt' ? 'selected' : '' %>>Versandt</option>
+                    <option value="Abgeschlossen" <%= o.status === 'Abgeschlossen' ? 'selected' : '' %>>Abgeschlossen</option>
+                  </select>
+                </form>
+              </td>
+            </tr>
+          <% }) %>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>

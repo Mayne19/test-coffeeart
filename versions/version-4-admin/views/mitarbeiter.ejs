@@ -1,0 +1,85 @@
+<section class="section">
+  <div class="container">
+    <h1>Mitarbeiter Dashboard</h1>
+    <p class="lead">Willkommen, <strong><%= user.name %></strong>. Hier kannst du Bestellungen verwalten und den aktuellen Produktbestand einsehen.</p>
+
+    <div class="admin-stats">
+      <div class="stat-card">
+        <h3><%= orders.length %></h3>
+        <p>Bestellungen</p>
+      </div>
+      <div class="stat-card">
+        <h3><%= products.length %></h3>
+        <p>Produkte im Sortiment</p>
+      </div>
+    </div>
+
+    <h2>Bestellungen</h2>
+    <div class="admin-table-wrapper">
+      <table class="admin-table">
+        <thead>
+          <tr>
+            <th>Bestellnummer</th>
+            <th>Kunde</th>
+            <th>Adresse</th>
+            <th>Produkte</th>
+            <th>Gesamtpreis</th>
+            <th>Status</th>
+            <th>Aktion</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% orders.forEach(function(o) { %>
+            <tr>
+              <td><%= o.id %></td>
+              <td><%= o.firstName %> <%= o.lastName %></td>
+              <td style="font-size:0.82rem;"><%= o.deliveryAddress ? 'Lieferadresse: ' + o.deliveryAddress : o.address %></td>
+              <td><% o.items.forEach(function(item) { %><%= item.quantity %>x <%= item.name %><br><% }) %></td>
+              <td><%= o.total %></td>
+              <td><%= o.status %></td>
+              <td>
+                <form method="POST" action="/mitarbeiter/orders/<%= o.id %>/status" style="display:flex;gap:0.4rem;align-items:center;">
+                  <select name="status" class="admin-action-btn admin-action-btn-status">
+                    <option value="Neu" <%= o.status === 'Neu' ? 'selected' : '' %>>Neu</option>
+                    <option value="In Bearbeitung" <%= o.status === 'In Bearbeitung' ? 'selected' : '' %>>In Bearbeitung</option>
+                    <option value="Versandt" <%= o.status === 'Versandt' ? 'selected' : '' %>>Versandt</option>
+                    <option value="Abgeschlossen" <%= o.status === 'Abgeschlossen' ? 'selected' : '' %>>Abgeschlossen</option>
+                  </select>
+                  <button type="submit" class="admin-action-btn admin-action-btn-edit">Status speichern</button>
+                </form>
+              </td>
+            </tr>
+          <% }) %>
+        </tbody>
+      </table>
+    </div>
+
+    <h2 style="margin-top:2.5rem;">Produktbestand</h2>
+    <div class="admin-table-wrapper">
+      <table class="admin-table">
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Kaffeesorte</th>
+            <th>Herkunft</th>
+            <th>Preis</th>
+            <th>Bestand</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% products.forEach(function(p) { %>
+            <tr>
+              <td><%= p.id %></td>
+              <td><strong><%= p.name %></strong></td>
+              <td><%= p.kaffeesorte %></td>
+              <td><%= p.origin %></td>
+              <td><%= p.price.toFixed(2).replace('.', ',') %> €</td>
+              <td><%= p.orderInfo.stock %></td>
+            </tr>
+          <% }) %>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>

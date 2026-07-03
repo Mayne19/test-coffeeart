@@ -1,0 +1,141 @@
+<section class="section">
+  <div class="container">
+    <a href="/admin" class="back-link"><i class="hgi-stroke hgi-arrow-left-02" aria-hidden="true"></i><span>Zurück zum Dashboard</span></a>
+    <h1><%= product ? 'Produkt bearbeiten' : 'Neues Produkt' %></h1>
+
+    <div class="admin-form">
+<% const formAction = product ? '/admin/products/' + product.id + '/edit' : '/admin/products/new' %>
+      <form method="POST" action="<%= formAction %>">
+
+        <fieldset>
+          <legend>Hauptinformationen</legend>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label for="name">Name *</label>
+              <input type="text" id="name" name="name" value="<%= product ? product.name : '' %>" required>
+            </div>
+            <div class="form-group">
+              <label for="origin">Herkunft</label>
+              <input type="text" id="origin" name="origin" value="<%= product ? product.origin : '' %>">
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="tagline">Kurzbeschreibung / Slogan</label>
+            <input type="text" id="tagline" name="tagline" value="<%= product && product.tagline ? product.tagline : '' %>" placeholder="z. B. Schokoladig. Vollmundig. Bewusst genießen.">
+          </div>
+
+          <div class="form-group">
+            <label for="description">Beschreibung</label>
+            <textarea id="description" name="description" rows="3"><%= product && product.description ? product.description : '' %></textarea>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label for="price">Preis (€) *</label>
+              <input type="number" step="0.01" id="price" name="price" value="<%= product ? product.price : '' %>" required>
+            </div>
+            <div class="form-group">
+              <label for="stock">Bestand</label>
+              <input type="number" id="stock" name="stock" value="<%= product ? product.orderInfo.stock : 0 %>">
+            </div>
+          </div>
+        </fieldset>
+
+        <fieldset>
+          <legend>Bilder</legend>
+          <div class="images-grid">
+            <div class="form-group">
+              <label for="image1">Bild 1 (Hauptbild)</label>
+              <input type="url" id="image1" name="image1" value="<%= product ? product.image : '' %>">
+            </div>
+            <div class="form-group">
+              <label for="image2">Bild 2</label>
+              <input type="url" id="image2" name="image2" value="<%= product && product.images && product.images[1] ? product.images[1] : '' %>">
+            </div>
+            <div class="form-group">
+              <label for="image3">Bild 3</label>
+              <input type="url" id="image3" name="image3" value="<%= product && product.images && product.images[2] ? product.images[2] : '' %>">
+            </div>
+          </div>
+        </fieldset>
+
+        <fieldset>
+          <legend>Produktdetails</legend>
+          <div class="form-row-3">
+            <div class="form-group">
+              <label for="kaffeesorte">Kaffeesorte</label>
+              <select id="kaffeesorte" name="kaffeesorte">
+                <option value="Espresso" <%= product && product.kaffeesorte === 'Espresso' ? 'selected' : '' %>>Espresso</option>
+                <option value="Filterkaffee" <%= product && product.kaffeesorte === 'Filterkaffee' ? 'selected' : '' %>>Filterkaffee</option>
+                <option value="Caffe Crema" <%= product && product.kaffeesorte === 'Caffe Crema' ? 'selected' : '' %>>Caffe Crema</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="taste">Geschmack</label>
+              <input type="text" id="taste" name="taste" value="<%= product ? product.taste : '' %>" placeholder="z. B. Schokoladig">
+            </div>
+            <div class="form-group">
+              <label for="weight">Gewicht (g)</label>
+              <input type="number" id="weight" name="weight" value="<%= product ? product.weight : 250 %>">
+            </div>
+          </div>
+        </fieldset>
+
+        <fieldset>
+          <legend>Kaffeeprofil</legend>
+          <div class="form-row-3">
+            <div class="form-group">
+              <label for="strength">Stärke (1-5)</label>
+              <input type="number" min="1" max="5" id="strength" name="strength" value="<%= product ? product.strength : 3 %>">
+            </div>
+            <div class="form-group">
+              <label for="roast">Röstung (1-5)</label>
+              <input type="number" min="1" max="5" id="roast" name="roast" value="<%= product && product.coffeeProfile && product.coffeeProfile.roast ? product.coffeeProfile.roast : 3 %>">
+            </div>
+            <div class="form-group">
+              <label for="acidity">Säure (1-5)</label>
+              <input type="number" min="1" max="5" id="acidity" name="acidity" value="<%= product && product.coffeeProfile && product.coffeeProfile.acidity ? product.coffeeProfile.acidity : 2 %>">
+            </div>
+          </div>
+        </fieldset>
+
+        <fieldset>
+          <legend>Röstprofil</legend>
+          <div class="form-row-3">
+            <div class="form-group">
+              <label for="roastTemp">Temperatur</label>
+              <input type="text" id="roastTemp" name="roastTemp" value="<%= product ? product.roastProfile.temperature : '' %>" placeholder="z. B. 220°C">
+            </div>
+            <div class="form-group">
+              <label for="roastDuration">Dauer</label>
+              <input type="text" id="roastDuration" name="roastDuration" value="<%= product ? product.roastProfile.duration : '' %>" placeholder="z. B. 14 Minuten">
+            </div>
+            <div class="form-group">
+              <label for="roastLevel">Röstgrad</label>
+              <select id="roastLevel" name="roastLevel">
+                <option value="Hell" <%= product && product.roastProfile.level === 'Hell' ? 'selected' : '' %>>Hell</option>
+                <option value="Mittel-Hell" <%= product && product.roastProfile.level === 'Mittel-Hell' ? 'selected' : '' %>>Mittel-Hell</option>
+                <option value="Mittel" <%= product && product.roastProfile.level === 'Mittel' ? 'selected' : '' %>>Mittel</option>
+                <option value="Dunkel" <%= product && product.roastProfile.level === 'Dunkel' ? 'selected' : '' %>>Dunkel</option>
+              </select>
+            </div>
+          </div>
+        </fieldset>
+
+        <fieldset>
+          <legend>Zubereitungstipps</legend>
+          <div class="form-group">
+            <textarea id="preparationTips" name="preparationTips" rows="3"><%= product ? product.preparationTips : '' %></textarea>
+          </div>
+        </fieldset>
+
+        <div class="form-actions">
+          <button type="submit" class="btn btn-primary"><span><%= product ? 'Speichern' : 'Produkt anlegen' %></span></button>
+          <a href="/admin" class="btn btn-secondary"><span>Abbrechen</span></a>
+        </div>
+      </form>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,188 @@
+[
+  {
+    "id": 1,
+    "name": "Espresso Bremen",
+    "kaffeesorte": "Espresso",
+    "origin": "Brasilien",
+    "taste": "Schokoladig",
+    "strength": 5,
+    "price": 12.99,
+    "weight": 500,
+    "image": "https://images.unsplash.com/photo-1559496417-e7f25cb247f3?w=400&h=400&fit=crop",
+    "images": [
+      "https://images.unsplash.com/photo-1559496417-e7f25cb247f3?w=400&h=400&fit=crop"
+    ],
+    "tagline": "Schokoladig. Vollmundig. Bewusst genießen.",
+    "description": "Espresso Bremen verbindet schokoladige Noten mit einer sorgfältigen Trommelröstung. Die Bohnen aus Brasilien eignen sich für bewussten Kaffeegenuss zu Hause.",
+    "coffeeProfile": {
+      "strength": 5,
+      "roast": 5,
+      "acidity": 2
+    },
+    "roastProfile": {
+      "temperature": "220°C",
+      "duration": "14 Minuten",
+      "level": "Dunkel"
+    },
+    "preparationTips": "Ideal für Siebträger und Vollautomat.",
+    "orderInfo": {
+      "available": true,
+      "stock": 42
+    }
+  },
+  {
+    "id": 2,
+    "name": "Havanna Morgen",
+    "kaffeesorte": "Filterkaffee",
+    "origin": "Kolumbien",
+    "taste": "Fruchtig",
+    "strength": 3,
+    "price": 14.49,
+    "weight": 250,
+    "image": "https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?w=400&h=400&fit=crop",
+    "images": [
+      "https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?w=400&h=400&fit=crop"
+    ],
+    "tagline": "Fruchtig. Ausgewogen. Bewusst genießen.",
+    "description": "Havanna Morgen verbindet fruchtige Noten mit einer sorgfältigen Trommelröstung. Die Bohnen aus Kolumbien eignen sich für bewussten Kaffeegenuss zu Hause.",
+    "coffeeProfile": {
+      "strength": 3,
+      "roast": 3,
+      "acidity": 4
+    },
+    "roastProfile": {
+      "temperature": "200°C",
+      "duration": "12 Minuten",
+      "level": "Mittel"
+    },
+    "preparationTips": "Perfekt für Filterkaffee und Chemex.",
+    "orderInfo": {
+      "available": true,
+      "stock": 28
+    }
+  },
+  {
+    "id": 3,
+    "name": "Vulkan Äthiopien",
+    "kaffeesorte": "Espresso",
+    "origin": "Äthiopien",
+    "taste": "Blumig",
+    "strength": 4,
+    "price": 16.99,
+    "weight": 250,
+    "image": "https://images.unsplash.com/photo-1509042239860-f550ce710b93?w=400&h=400&fit=crop",
+    "images": [
+      "https://images.unsplash.com/photo-1509042239860-f550ce710b93?w=400&h=400&fit=crop"
+    ],
+    "tagline": "Blumig. Komplex. Bewusst genießen.",
+    "description": "Vulkan Äthiopien verbindet blumige Noten mit einer sorgfältigen Trommelröstung. Die Bohnen aus Äthiopien eignen sich für bewussten Kaffeegenuss zu Hause.",
+    "coffeeProfile": {
+      "strength": 4,
+      "roast": 3,
+      "acidity": 3
+    },
+    "roastProfile": {
+      "temperature": "210°C",
+      "duration": "13 Minuten",
+      "level": "Mittel-Hell"
+    },
+    "preparationTips": "Aeropress oder Pour-Over für beste Ergebnisse.",
+    "orderInfo": {
+      "available": true,
+      "stock": 15
+    }
+  },
+  {
+    "id": 4,
+    "name": "Café con Leche",
+    "kaffeesorte": "Caffe Crema",
+    "origin": "Guatemala",
+    "taste": "Nussig",
+    "strength": 2,
+    "price": 11.49,
+    "weight": 500,
+    "image": "https://images.unsplash.com/photo-1504630083234-14187a9df0f5?w=400&h=400&fit=crop",
+    "images": [
+      "https://images.unsplash.com/photo-1504630083234-14187a9df0f5?w=400&h=400&fit=crop"
+    ],
+    "tagline": "Nussig. Mild. Bewusst genießen.",
+    "description": "Café con Leche verbindet nussige Noten mit einer sorgfältigen Trommelröstung. Die Bohnen aus Guatemala eignen sich für bewussten Kaffeegenuss zu Hause.",
+    "coffeeProfile": {
+      "strength": 2,
+      "roast": 3,
+      "acidity": 2
+    },
+    "roastProfile": {
+      "temperature": "195°C",
+      "duration": "11 Minuten",
+      "level": "Hell"
+    },
+    "preparationTips": "Hervorragend für French Press und Milchkaffee.",
+    "orderInfo": {
+      "available": true,
+      "stock": 35
+    }
+  },
+  {
+    "id": 5,
+    "name": "Brezel Blend",
+    "kaffeesorte": "Espresso",
+    "origin": "Honduras",
+    "taste": "Karamellig",
+    "strength": 4,
+    "price": 13.79,
+    "weight": 500,
+    "image": "https://images.unsplash.com/photo-1572442388796-11668a67e53d?w=400&h=400&fit=crop",
+    "images": [
+      "https://images.unsplash.com/photo-1572442388796-11668a67e53d?w=400&h=400&fit=crop"
+    ],
+    "tagline": "Karamellig. Kräftig. Bewusst genießen.",
+    "description": "Brezel Blend verbindet karamellige Noten mit einer sorgfältigen Trommelröstung. Die Bohnen aus Honduras eignen sich für bewussten Kaffeegenuss zu Hause.",
+    "coffeeProfile": {
+      "strength": 4,
+      "roast": 5,
+      "acidity": 2
+    },
+    "roastProfile": {
+      "temperature": "215°C",
+      "duration": "14 Minuten",
+      "level": "Dunkel"
+    },
+    "preparationTips": "Klassischer Espresso – pur oder mit wenig Milch.",
+    "orderInfo": {
+      "available": true,
+      "stock": 20
+    }
+  },
+  {
+    "id": 6,
+    "name": "Nordlicht Entkoffeiniert",
+    "kaffeesorte": "Filterkaffee",
+    "origin": "Peru",
+    "taste": "Mild",
+    "strength": 1,
+    "price": 10.99,
+    "weight": 500,
+    "image": "https://images.unsplash.com/photo-1497935586351-b67a49e012bf?w=400&h=400&fit=crop",
+    "images": [
+      "https://images.unsplash.com/photo-1497935586351-b67a49e012bf?w=400&h=400&fit=crop"
+    ],
+    "tagline": "Mild. Sanft. Bewusst genießen.",
+    "description": "Nordlicht Entkoffeiniert verbindet milde Noten mit einer sorgfältigen Trommelröstung. Die Bohnen aus Peru eignen sich für bewussten Kaffeegenuss zu Hause.",
+    "coffeeProfile": {
+      "strength": 1,
+      "roast": 2,
+      "acidity": 1
+    },
+    "roastProfile": {
+      "temperature": "190°C",
+      "duration": "10 Minuten",
+      "level": "Hell"
+    },
+    "preparationTips": "Für den Abend geeignet – mild und bekömmlich.",
+    "orderInfo": {
+      "available": true,
+      "stock": 50
+    }
+  }
+]
